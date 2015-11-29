@@ -30,7 +30,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     self.productList = [[NSMutableArray alloc] init];
-    [self.tableView reloadData];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,11 +49,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSString * identifier = @"Cell";
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     
     Product * product = [self.productList objectAtIndex:indexPath.row];
     cell.textLabel.text = product.name;
+    if (product.isBuyed) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     
     // Configure the cell...
     
@@ -61,7 +65,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    Product* product = [self.productList objectAtIndex:indexPath.row];
+    product.isBuyed = !product.isBuyed;
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     
@@ -109,6 +115,7 @@
 */
 
 - (IBAction)buttonAddAction:(id)sender {
+    
     UIAlertController * addToShopList = [UIAlertController
                                          alertControllerWithTitle:@"Add to shopping list"
                                          message:@"What did you bought?"
@@ -119,7 +126,7 @@
                                    style:UIAlertActionStyleCancel
                                    handler:^(UIAlertAction *action)
                                    {
-                                       NSLog(@"Cancel action");
+
                                    }];
     
     UIAlertAction *okAction = [UIAlertAction
@@ -132,8 +139,7 @@
                                    product.name = shopString.text;
                                    product.isBuyed = NO;
                                    [self.productList addObject:product];
-                                   NSLog(@"Add text %@", product.name);
-                                   [self.tableView reloadData];
+                                   [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
                                    
                                }];
     
@@ -141,7 +147,7 @@
     [addToShopList addAction:okAction];
     [addToShopList addTextFieldWithConfigurationHandler:^(UITextField *textField) {
        textField.placeholder = @"For example juice ;)";
-        
+
     }];
     [self presentViewController:addToShopList animated:YES completion:nil];
     
