@@ -1,13 +1,13 @@
 //
-//  TableViewController.h
+//  Product.m
 //  Shopping List
 //
 //  Created by Maksym Savisko on 11/29/15.
 //  Copyright © 2015 Maksym Savisko. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "Product.h"
 
-@interface TableViewController : UITableViewController //<UITextFieldDelegate>
+@implementation Product
 
 @end

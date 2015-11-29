@@ -7,11 +7,12 @@
 //
 
 #import "TableViewController.h"
+#import "Product.h"
 
-@interface TableViewController ()
+@interface TableViewController () //<UITextFieldDelegate>
 - (IBAction)buttonAddAction:(id)sender;
 
-@property (nonatomic, strong) NSMutableArray * shopListArray;
+@property (nonatomic, strong) NSMutableArray * productList;
 
 @end
 
@@ -19,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -28,7 +29,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.shopListArray = [[NSMutableArray alloc] initWithObjects:@"AAA",@"BBB",@"CCC", nil];
+    self.productList = [[NSMutableArray alloc] init];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,9 +41,8 @@
 #pragma mark - Table view data source
 
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.shopListArray.count;
+    return self.productList.count;
 }
 
 
@@ -51,8 +52,8 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     
-    NSString * string = [self.shopListArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = string;
+    Product * product = [self.productList objectAtIndex:indexPath.row];
+    cell.textLabel.text = product.name;
     
     // Configure the cell...
     
@@ -129,13 +130,21 @@
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction *action)
                                {
-                                   NSLog(@"OK action");
+                                   UITextField* shopString = addToShopList.textFields.firstObject;
+                                   Product* product = [[Product alloc] init];
+                                   product.name = shopString.text;
+                                   product.isBuyed = NO;
+                                   [self.productList addObject:product];
+                                   NSLog(@"Add text %@", product.name);
+                                   [self.tableView reloadData];
+                                   
                                }];
     
     [addToShopList addAction:cancelAction];
     [addToShopList addAction:okAction];
     [addToShopList addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-       textField.placeholder = @"For example Apple ;)";
+       textField.placeholder = @"For example juice ;)";
+        
     }];
     [self presentViewController:addToShopList animated:YES completion:nil];
     
@@ -143,5 +152,7 @@
     + (instancetype)alertControllerWithTitle:(nullable NSString *)title message:(nullable NSString *)message preferredStyle:(UIAlertControllerStyle)preferredStyle;
   */  
 }
+
+
 
 @end
