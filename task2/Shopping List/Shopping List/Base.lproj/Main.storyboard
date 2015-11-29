@@ -38,7 +38,11 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Shooping List" id="bOK-so-7Gi">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="H4G-GO-1UD"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="H4G-GO-1UD">
+                            <connections>
+                                <action selector="buttonAddAction:" destination="OBD-Ae-k43" id="KFU-dd-mbV"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>

@@ -9,6 +9,7 @@
 #import "TableViewController.h"
 
 @interface TableViewController ()
+- (IBAction)buttonAddAction:(id)sender;
 
 @property (nonatomic, strong) NSMutableArray * shopListArray;
 
@@ -108,5 +109,39 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)buttonAddAction:(id)sender {
+    UIAlertController * addToShopList = [UIAlertController
+                                         alertControllerWithTitle:@"Add to shopping list"
+                                         message:@"What did you bought?"
+                                         preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancelAction = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action")
+                                   style:UIAlertActionStyleCancel
+                                   handler:^(UIAlertAction *action)
+                                   {
+                                       NSLog(@"Cancel action");
+                                   }];
+    
+    UIAlertAction *okAction = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action)
+                               {
+                                   NSLog(@"OK action");
+                               }];
+    
+    [addToShopList addAction:cancelAction];
+    [addToShopList addAction:okAction];
+    [addToShopList addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+       textField.placeholder = @"For example Apple ;)";
+    }];
+    [self presentViewController:addToShopList animated:YES completion:nil];
+    
+ /*
+    + (instancetype)alertControllerWithTitle:(nullable NSString *)title message:(nullable NSString *)message preferredStyle:(UIAlertControllerStyle)preferredStyle;
+  */  
+}
 
 @end
