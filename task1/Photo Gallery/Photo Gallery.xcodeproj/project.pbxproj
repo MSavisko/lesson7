@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		892787741C0CCFD60004E754 /* CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 892787731C0CCFD60004E754 /* CollectionView.m */; };
 		89B0E64F1C0B93F200D46557 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B0E64E1C0B93F200D46557 /* main.m */; };
 		89B0E6521C0B93F200D46557 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B0E6511C0B93F200D46557 /* AppDelegate.m */; };
 		89B0E6551C0B93F200D46557 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B0E6541C0B93F200D46557 /* ViewController.m */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		892787721C0CCFD60004E754 /* CollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionView.h; sourceTree = "<group>"; };
+		892787731C0CCFD60004E754 /* CollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionView.m; sourceTree = "<group>"; };
 		89B0E64A1C0B93F200D46557 /* Photo Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Photo Gallery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89B0E64E1C0B93F200D46557 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		89B0E6501C0B93F200D46557 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -62,6 +65,8 @@
 				89B0E6511C0B93F200D46557 /* AppDelegate.m */,
 				89B0E6531C0B93F200D46557 /* ViewController.h */,
 				89B0E6541C0B93F200D46557 /* ViewController.m */,
+				892787721C0CCFD60004E754 /* CollectionView.h */,
+				892787731C0CCFD60004E754 /* CollectionView.m */,
 				89B0E6561C0B93F200D46557 /* Main.storyboard */,
 				89B0E6591C0B93F200D46557 /* Assets.xcassets */,
 				89B0E65B1C0B93F300D46557 /* LaunchScreen.storyboard */,
@@ -152,6 +157,7 @@
 			files = (
 				89B0E6551C0B93F200D46557 /* ViewController.m in Sources */,
 				89B0E6521C0B93F200D46557 /* AppDelegate.m in Sources */,
+				892787741C0CCFD60004E754 /* CollectionView.m in Sources */,
 				89B0E64F1C0B93F200D46557 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,6 +268,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Photo Gallery/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -274,6 +281,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Photo Gallery/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -301,6 +309,7 @@
 				89B0E6631C0B93F300D46557 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -16,47 +16,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YuM-Yl-KHX">
-                                <rect key="frame" x="180" y="236" width="240" height="128"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RPL-cf-eo1">
-                                    <size key="itemSize" width="239" height="126"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="G7f-kz-FdW">
-                                        <rect key="frame" x="1" y="0.0" width="239" height="126"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="239" height="126"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e9w-DX-R0H">
-                                                    <rect key="frame" x="0.0" y="-2" width="240" height="128"/>
-                                                </imageView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="1xt-FC-ExF">
                                 <rect key="frame" x="281" y="540" width="39" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="wRe-hS-Khz"/>
                                 </constraints>
                             </pageControl>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0EZ-t7-YNp">
+                                <rect key="frame" x="0.0" y="60" width="600" height="480"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1xt-FC-ExF" secondAttribute="bottom" constant="20" id="Flp-8d-nJ3"/>
+                            <constraint firstItem="0EZ-t7-YNp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Hvy-NP-ZlD"/>
+                            <constraint firstItem="1xt-FC-ExF" firstAttribute="top" secondItem="0EZ-t7-YNp" secondAttribute="bottom" id="USY-63-rfH"/>
+                            <constraint firstAttribute="trailing" secondItem="0EZ-t7-YNp" secondAttribute="trailing" id="cSU-C5-jAk"/>
+                            <constraint firstItem="0EZ-t7-YNp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dba-3d-LsJ"/>
+                            <constraint firstItem="0EZ-t7-YNp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gIw-ue-l4p"/>
                             <constraint firstItem="1xt-FC-ExF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pVh-a0-XCe"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="0EZ-t7-YNp" id="wMB-Ft-Y8g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="309" y="349"/>
         </scene>
     </scenes>
 </document>
